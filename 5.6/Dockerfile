@@ -10,6 +10,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y \
 
 RUN docker-php-ext-install mbstring mcrypt zip
 
+RUN a2enmod rewrite
+
 RUN mkdir -p /app/public && chown -R www-data:www-data /app
 
 WORKDIR /app
