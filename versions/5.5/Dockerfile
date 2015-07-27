@@ -18,7 +18,7 @@ RUN docker-php-pecl-install xdebug
 # Install composer
 RUN curl -sS https://getcomposer.org/installer | php -- \
       --install-dir=/usr/local/bin \
-      --filename=composer \
+      --filename=composer
 
 # Setup apache
 RUN a2enmod rewrite
