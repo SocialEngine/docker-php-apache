@@ -1,0 +1,11 @@
+#!/bin/bash
+
+typeset script_dir=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+
+. "$script_dir/php5-timezone"
+. "$script_dir/php5-xdebug"
+
+_php_set_xdebug "${PHP_INI_DIR}" "${PHP_XDEBUG}" 
+_php_set_timezone "${PHP_INI_DIR}" "${PHP_TIMEZONE}"
+
+exec "$@"
