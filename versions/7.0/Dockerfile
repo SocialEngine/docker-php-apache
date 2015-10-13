@@ -1,4 +1,4 @@
-FROM php:5.5-apache
+FROM php:7.0-apache
 MAINTAINER Stepan Mazurov <stepan@socialengine.com>
 
 COPY bin/* /usr/local/bin/

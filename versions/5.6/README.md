@@ -1,4 +1,4 @@
-[![docker pull socialengine/apache-php][3]][4]
+[![docker pull socialengine/apache-php][image shield]][docker hub]
 
 This is a Docker image with PHP, Composer, and Apache (running in 
 Foreground) serving from public/ folder. Ideal for Laravel, Lumen and other 
@@ -6,8 +6,9 @@ modern php apps.
 
 ## Supported tags and `Dockerfile` links
 
--	[`5.6` (*5.6/Dockerfile*)][1]
--	[`5.5` (*5.5/Dockerfile*)][2]
+-	[`7.0` (*7.0/Dockerfile*)][5.5]
+-	[`5.6` (*5.6/Dockerfile*)][5.6]
+-	[`5.5` (*5.5/Dockerfile*)][7.0]
 
 ## Included on top of [base][base image] PHP image
 
@@ -41,7 +42,8 @@ $ docker run -e PHP_XDEBUG=1 [your image]
 ```
 
 [base image]: https://github.com/docker-library/php
-[1]: https://github.com/SocialEngine/docker-php-apache/blob/master/versions/5.6/Dockerfile
-[2]: https://github.com/SocialEngine/docker-php-apache/blob/master/versions/5.5/Dockerfile
-[3]: https://img.shields.io/badge/dockerhub-socialengine%2Fphp--apache-blue.svg
-[4]: https://registry.hub.docker.com/u/socialengine/php-apache/
+[5.5]: https://github.com/SocialEngine/docker-php-apache/blob/master/versions/5.5/Dockerfile
+[5.6]: https://github.com/SocialEngine/docker-php-apache/blob/master/versions/5.6/Dockerfile
+[7.0]: https://github.com/SocialEngine/docker-php-apache/blob/master/versions/7.0/Dockerfile
+[image shield]: https://img.shields.io/badge/dockerhub-socialengine%2Fphp--apache-blue.svg
+[docker hub]: https://registry.hub.docker.com/u/socialengine/php-apache/
