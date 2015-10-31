@@ -6,9 +6,9 @@ modern php apps.
 
 ## Supported tags and `Dockerfile` links
 
--	[`7.0` (*7.0/Dockerfile*)][5.5]
+-	[`7.0` (*7.0/Dockerfile*)][7.0]
 -	[`5.6` (*5.6/Dockerfile*)][5.6]
--	[`5.5` (*5.5/Dockerfile*)][7.0]
+-	[`5.5` (*5.5/Dockerfile*)][5.5]
 
 ## Included on top of [base][base image] PHP image
 
@@ -40,6 +40,8 @@ If you want to enable xdebug:
 ```bash
 $ docker run -e PHP_XDEBUG=1 [your image]
 ```
+
+See [example](example/) for further info. 
 
 [base image]: https://github.com/docker-library/php
 [5.5]: https://github.com/SocialEngine/docker-php-apache/blob/master/versions/5.5/Dockerfile
