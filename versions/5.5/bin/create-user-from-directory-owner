@@ -1,0 +1,39 @@
+#!/bin/bash
+
+##
+# Generate a random sixteen-character
+# string of alphabetical characters
+randname() {
+    local -x LC_ALL=C
+    tr -dc '[:lower:]' < /dev/urandom |
+        dd count=1 bs=16 2>/dev/null
+}
+
+create_user_from_directory_owner() {
+    if [ $# -ne 1 ]; then
+        echo "Creates a user (and group) from the owner of a given directory, if it doesn't exist."
+        echo "Usage: create_user_from_directory_owner <path>"
+
+        return 1
+    fi
+
+    local owner group owner_id group_id path
+    path=$1
+
+    read owner group owner_id group_id < <(stat -c '%U %G %u %g' $path)
+    if [[ $owner = UNKNOWN ]]; then
+        owner=$(randname)
+        if [[ $group = UNKNOWN ]]; then
+            group=$owner
+            addgroup --system --gid "$group_id" "$group" > /dev/null
+        fi
+        adduser --no-create-home --system --uid=$owner_id --gid=$group_id "$owner" > /dev/null
+        echo "[Apache User] Created user for uid ($owner_id), and named it '$owner'"
+    fi
+
+    sed -i "s/\${APACHE_RUN_USER}/$owner/g" /etc/apache2/apache2.conf
+    sed -i "s/\${APACHE_RUN_GROUP}/$group/g" /etc/apache2/apache2.conf
+    echo "[Apache User] Set Apache user to $owner and group to $group"
+
+    return 0
+}

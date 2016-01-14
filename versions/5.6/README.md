@@ -43,6 +43,23 @@ $ docker run -e PHP_XDEBUG=1 [your image]
 
 See [example](example/) for further info. 
 
+## Check Links
+
+A lot of times, your depedant services aren't ready to go as fast as your app
+
+For that, there's a `check_docker_link` command that will check TCP to make 
+sure its up
+
+```
+Usage: check_docker_link <name> <addr> <port>
+
+# Example
+if check_docker_link "mysql" "${DB_1_PORT_3306_TCP_ADDR}" "${DB_1_PORT_3306_TCP_PORT}"; then
+    export MYSQL_HOST=${DB_1_PORT_3306_TCP_ADDR}
+    export MYSQL_PORT=${DB_1_PORT_3306_TCP_PORT}
+fi
+```
+
 [base image]: https://github.com/docker-library/php
 [5.5]: https://github.com/SocialEngine/docker-php-apache/blob/master/versions/5.5/Dockerfile
 [5.6]: https://github.com/SocialEngine/docker-php-apache/blob/master/versions/5.6/Dockerfile
