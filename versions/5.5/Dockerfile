@@ -12,7 +12,7 @@ COPY bin/* /usr/local/bin/
 
 # Setup bare-minimum extra extensions for Laravel & others
 RUN docker-php-ext-install mbstring mcrypt zip \
-	&& docker-php-pecl-install xdebug
+	&& docker-php-pecl-install xdebug-beta
 
 # Install composer
 RUN curl -sS https://getcomposer.org/installer | php -- \
