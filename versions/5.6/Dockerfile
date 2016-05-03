@@ -12,7 +12,8 @@ COPY bin/* /usr/local/bin/
 
 # Setup bare-minimum extra extensions for Laravel & others
 RUN docker-php-ext-install mbstring mcrypt zip \
-	&& docker-php-pecl-install xdebug-beta
+	&& docker-php-pecl-install xdebug \
+	&& rm ${PHP_INI_DIR}/conf.d/docker-php-pecl-xdebug.ini
 
 # Install composer
 RUN curl -sS https://getcomposer.org/installer | php -- \
@@ -32,7 +33,7 @@ RUN a2enmod rewrite
 
 # Copy configs
 COPY apache2.conf /etc/apache2/apache2.conf
-COPY xdebug.ini ${PHP_INI_DIR}/conf.d/docker-php-pecl-xdebug.ini
+COPY xdebug.ini ${PHP_INI_DIR}/conf.d/docker-php-pecl-xdebug.ini.disabled
 COPY php.ini ${PHP_INI_DIR}/php.ini
 
 # Setup App
