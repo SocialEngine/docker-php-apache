@@ -32,7 +32,7 @@ ENV VOLUME_PATH /app/public
 RUN a2enmod rewrite
 
 # Copy configs
-COPY apache2.conf /etc/apache2/apache2.conf
+COPY virtual-host.conf /etc/apache2/sites-available/000-default.conf
 COPY xdebug.ini ${PHP_INI_DIR}/conf.d/docker-php-pecl-xdebug.ini.disabled
 COPY php.ini ${PHP_INI_DIR}/php.ini
 
