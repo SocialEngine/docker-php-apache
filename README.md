@@ -6,6 +6,7 @@ modern php apps.
 
 ## Supported tags and `Dockerfile` links
 
+-	[`7.1` (*7.1/Dockerfile*)][7.1]
 -	[`7.0` (*7.0/Dockerfile*)][7.0]
 -	[`5.6` (*5.6/Dockerfile*)][5.6]
 -	[`5.5` (*5.5/Dockerfile*)][5.5]
@@ -64,5 +65,6 @@ fi
 [5.5]: https://github.com/SocialEngine/docker-php-apache/blob/master/versions/5.5/Dockerfile
 [5.6]: https://github.com/SocialEngine/docker-php-apache/blob/master/versions/5.6/Dockerfile
 [7.0]: https://github.com/SocialEngine/docker-php-apache/blob/master/versions/7.0/Dockerfile
+[7.1]: https://github.com/SocialEngine/docker-php-apache/blob/master/versions/7.1/Dockerfile
 [image shield]: https://img.shields.io/badge/dockerhub-socialengine%2Fphp--apache-blue.svg
 [docker hub]: https://registry.hub.docker.com/u/socialengine/php-apache/
