@@ -1,0 +1,18 @@
+#!/bin/bash
+
+typeset script_dir=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+
+. "$script_dir/php5-timezone"
+. "$script_dir/php5-xdebug"
+. "$script_dir/create-user-from-directory-owner"
+
+_php_set_xdebug "${PHP_INI_DIR}" "${PHP_XDEBUG}"
+_php_set_timezone "${PHP_INI_DIR}" "${PHP_TIMEZONE}"
+
+# Set DocumentRoot to VOLUME_PATH
+sed -i "s|\${VOLUME_PATH}|${VOLUME_PATH}|g" ${APACHE_CONFDIR}/sites-available/000-default.conf
+
+# Set Apache user/group
+create_user_from_directory_owner "${VOLUME_PATH}"
+
+exec "$@"
