@@ -6,12 +6,14 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y \
     zlib1g-dev \
     telnet \
     git \
-  && rm -rf /var/lib/apt/lists/*
+  && rm -rf /var/lib/apt/lists/* \
+  && pecl install mcrypt-1.0.2 \
+  && docker-php-ext-enable mcrypt
 
 COPY bin/* /usr/local/bin/
 
 # Setup bare-minimum extra extensions for Laravel & others
-RUN docker-php-ext-install mbstring mcrypt zip \
+RUN docker-php-ext-install mbstring zip \
 	&& docker-php-pecl-install xdebug \
 	&& rm ${PHP_INI_DIR}/conf.d/docker-php-pecl-xdebug.ini
 
